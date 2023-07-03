@@ -1,10 +1,13 @@
 package com.mvc.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.AbstractRefreshableConfigApplicationContext;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -63,6 +67,13 @@ public class TeacherController {
 		Teacher teach = teacherService.getTeacherById(id);
 		model.addAttribute("teacher", teach);
 		System.out.println(teach);
+		
+		//loading company logo - start
+		 byte[] bytes = teacherService.getImageInBytes(id);
+		 String base64Image = Base64.encodeBase64String(bytes);
+		 teacherService.setImage(base64Image);
+      //loading company logo - end
+		
 		return "EditTeacher";
 	}
 

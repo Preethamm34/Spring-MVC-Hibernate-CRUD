@@ -143,6 +143,7 @@ a {
 						<tr style="text-align: center;">
 							<th scope="col">Sl No</th>
 							<th scope="col">Teacher Name</th>
+							<th scope="col">Teacher Photo</th>
 							<th scope="col">Gender</th>
 							<th scope="col">Address</th>
 							<th scope="col">Country</th>
@@ -158,6 +159,11 @@ a {
 							<tr>
 								<td class="table-plus">${teach.id}</td>
 								<td>${teach.teachername}</td>
+								
+								<td></td>
+								
+								
+								
 								<td>${teach.gender}</td>
 								<td>${teach.address}</td>
 								<td>${teach.country}</td>

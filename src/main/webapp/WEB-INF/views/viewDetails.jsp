@@ -47,6 +47,12 @@ a {
 
 }
 
+@media print {
+  .page {
+    size: A4
+  }
+}
+
 </style>
 </head>
 <body>
@@ -73,7 +79,9 @@ a {
 
 <div class="pic">
 
-<p>photo</p>
+<p>photo
+${teacher.fileUpload}
+</p>
 
 </div>
 

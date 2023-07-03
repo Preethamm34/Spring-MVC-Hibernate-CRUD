@@ -1,5 +1,7 @@
 package com.mvc.dao;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -82,6 +84,32 @@ public class TeacherDaoImpl implements TeacherDao {
 		Teacher teacher = hibernateTemplate.get(Teacher.class, id);
 		return teacher;
 	}
+
+	public byte[] getImageInBytes(int id) {
+		InputStream inputStream = null;
+		byte[] imageBytes = null;
+		try {
+		Teacher teach = getTeacherById(id);
+		if (teach.getFileUpload() != null) {
+			java.sql.Blob b = teach.getFileUpload();
+			inputStream = b.getBinaryStream();
+
+			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+			byte[] buffer = new byte[4096];
+			int bytesRead = -1;
+
+			while ((bytesRead = inputStream.read(buffer)) != -1) {
+				outputStream.write(buffer, 0, bytesRead);
+			}
+			imageBytes = outputStream.toByteArray();
+		}
+		 
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return imageBytes;	}
+
 
 	
 }

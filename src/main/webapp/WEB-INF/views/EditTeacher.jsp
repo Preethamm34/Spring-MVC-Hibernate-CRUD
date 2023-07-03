@@ -107,6 +107,15 @@ a {
 				</select>
 
 				<!-- -------------------------------------------------------------------------------->
+				<br><br>
+	  				<!-- image upload -->
+
+                   <label> Upload Image :</label>
+                   <input type="file" name="fileUpload" accept="image/png, image/jpeg"  size="50" value="${teacher.fileUpload}" />
+          
+
+				<!-- -------------------------------------------------------------------------------->
+				
 
 				<div class="form2">
 					<h3>The Responsibilities of a teacher</h3>

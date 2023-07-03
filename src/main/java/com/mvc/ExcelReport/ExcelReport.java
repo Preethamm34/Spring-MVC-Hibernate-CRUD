@@ -34,6 +34,7 @@ public class ExcelReport extends AbstractXlsxView {
 		Row row = sheet.createRow(0);
 		row.createCell(0).setCellValue("Sl No");
 		row.createCell(1).setCellValue("Teacher Name");
+		row.createCell(2).setCellValue("fileUpload");
 		row.createCell(2).setCellValue("Gender");
 		row.createCell(3).setCellValue("Address");
 		row.createCell(4).setCellValue("Country");

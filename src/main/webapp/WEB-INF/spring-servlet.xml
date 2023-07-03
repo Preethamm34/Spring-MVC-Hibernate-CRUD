@@ -80,7 +80,7 @@
 	</bean>
 
 
-	<!-- <bean name="multipartResolver" class="org.springframework.web.multipart.commons.commonsMultipartResolver"> 
+<!-- 	<bean name="multipartResolver" class="org.springframework.web.multipart.commons.commonsMultipartResolver"> 
 		</bean> -->
 
 	<!-- <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"> 

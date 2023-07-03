@@ -61,4 +61,14 @@ public class TeacherServiceImpl implements TeacherService {
 		return teacherDao.viewTeacherById(id);
 	}
 
+	public byte[] getImageInBytes(int id) {
+		byte[] b = teacherDao.getImageInBytes(id);
+		return b;
+	}
+
+	public void setImage(String base64Image) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

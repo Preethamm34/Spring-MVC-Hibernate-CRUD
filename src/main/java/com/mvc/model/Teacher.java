@@ -1,10 +1,13 @@
 package com.mvc.model;
 
+import java.sql.Blob;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "teacher")
@@ -14,6 +17,7 @@ public class Teacher {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String teachername;
+	private Blob fileUpload;
 	private String gender;
 	private String address;
 	private String city;
@@ -22,6 +26,9 @@ public class Teacher {
 
 	private String classess;
 	private String subjects;
+	
+	@Transient
+	private String image;
 
 	public int getId() {
 		return id;
@@ -37,6 +44,14 @@ public class Teacher {
 
 	public void setTeachername(String teachername) {
 		this.teachername = teachername;
+	}
+
+	public Blob getFileUpload() {
+		return fileUpload;
+	}
+
+	public void setFileUpload(Blob fileUpload) {
+		this.fileUpload = fileUpload;
 	}
 
 	public String getGender() {
@@ -94,19 +109,16 @@ public class Teacher {
 	public void setSubjects(String subjects) {
 		this.subjects = subjects;
 	}
-
-	@Override
-	public String toString() {
-		return "Teacher [id=" + id + ", teachername=" + teachername + ", gender=" + gender + ", address=" + address
-				+ ", city=" + city + ", state=" + state + ", country=" + country + ", classess=" + classess
-				+ ", subjects=" + subjects + "]";
+	public void setImage(String image) {
+		this.image = image;
 	}
 
-	public Teacher(int id, String teachername, String gender, String address, String city, String state,
-			String country, String classess, String subjects) {
+	public Teacher(int id, String teachername, Blob fileUpload, String gender, String address, String city,
+			String state, String country, String classess, String subjects) {
 		super();
 		this.id = id;
 		this.teachername = teachername;
+		this.fileUpload = fileUpload;
 		this.gender = gender;
 		this.address = address;
 		this.city = city;
@@ -118,6 +130,13 @@ public class Teacher {
 
 	public Teacher() {
 		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Teacher [id=" + id + ", teachername=" + teachername + ", fileUpload=" + fileUpload + ", gender="
+				+ gender + ", address=" + address + ", city=" + city + ", state=" + state + ", country=" + country
+				+ ", classess=" + classess + ", subjects=" + subjects + "]";
 	}
 
 }

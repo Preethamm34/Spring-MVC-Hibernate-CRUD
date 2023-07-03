@@ -31,8 +31,11 @@ public interface TeacherDao {
 	 * address, String city, String state, String country, String classess, String
 	 * subjects);
 	 */
-	
-	 public List<Teacher> searchAll(String keyword);
-	 
-	 public Teacher viewTeacherById(int id);
+
+	public List<Teacher> searchAll(String keyword);
+
+	public Teacher viewTeacherById(int id);
+
+	// image save
+	public byte[] getImageInBytes(int id);
 }
